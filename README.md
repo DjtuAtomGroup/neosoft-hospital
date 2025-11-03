@@ -1,6 +1,9 @@
 # noesoft-hospital
 
-This template should help get you started developing with Vue 3 in Vite.
+东软云医院是学校在大四第一学期举行的实训课中的小组作业的一部分，这里提供一个易于扩展的基本框架，它具有约定大于配置的特点：
+- 通过集成unplugin-auto-import实现vue/vue-router api的自动导入
+- 使用专门的模块，实现对/router/modules/xx/ 下的文件的自动扫描和自动导入
+- 自动生成对应的菜单等
 
 ## Recommended IDE Setup
 
