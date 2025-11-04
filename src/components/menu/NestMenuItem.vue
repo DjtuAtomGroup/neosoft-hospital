@@ -8,7 +8,7 @@
     </template>
     <NestMenuItem v-for="(child, childIndex) in item.children" :key="childIndex" :item="child" />
   </el-sub-menu>
-  <el-menu-item v-else-if="item" :index="item.index">
+  <el-menu-item v-else-if="item" :index="item.index" @click="handleMenuItemClick(item.route)">
     <el-icon v-if="item?.icon">
       <component :is="item.icon" />
     </el-icon>
@@ -34,6 +34,11 @@ const props = withDefaults(defineProps<menuProps>(), {
 });
 
 const { item } = toRefs(props);
+const router = useRouter();
+
+const handleMenuItemClick = (path: string) => {
+  router.push(path);
+}
 </script>
 
 <style scoped>

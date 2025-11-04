@@ -905,6 +905,11 @@
   resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.17.20.tgz#1ca77361d7363432d29f5e55950d9ec1e1c6ea93"
   integrity sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==
 
+"@types/mockjs@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmmirror.com/@types/mockjs/-/mockjs-1.0.10.tgz#535e4bdc7c0e4658fc4b3696029d45ee6b053c8a"
+  integrity sha512-SXgrhajHG7boLv6oU93CcmdDm0HYRiceuz6b+7z+/2lCJPTWDv0V5YiwFHT2ejE4bQqgSXQiVPQYPWv7LGsK1g==
+
 "@types/node@^22.18.11":
   version "22.19.0"
   resolved "https://registry.npmmirror.com/@types/node/-/node-22.19.0.tgz#849606ef3920850583a4e7ee0930987c35ad80be"
@@ -1126,6 +1131,13 @@
   resolved "https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.6.4.tgz#cbe97fe0162b365edc1dba80e173f90492535343"
   integrity sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==
 
+"@vue/devtools-api@^7.7.2":
+  version "7.7.7"
+  resolved "https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-7.7.7.tgz#5ef5f55f60396220725a273548c0d7ee983d5d34"
+  integrity sha512-lwOnNBH2e7x1fIIbVT7yF5D+YWhqELm55/4ZKf45R9T8r9dE2AIOy8HKjfqzGsoTHFbWbr337O4E0A0QADnjBg==
+  dependencies:
+    "@vue/devtools-kit" "^7.7.7"
+
 "@vue/devtools-core@^8.0.3":
   version "8.0.3"
   resolved "https://registry.npmmirror.com/@vue/devtools-core/-/devtools-core-8.0.3.tgz#ed4eeff118fb3ce650f584ad48c0fe2171ee9fea"
@@ -1137,6 +1149,19 @@
     nanoid "^5.1.5"
     pathe "^2.0.3"
     vite-hot-client "^2.1.0"
+
+"@vue/devtools-kit@^7.7.7":
+  version "7.7.7"
+  resolved "https://registry.npmmirror.com/@vue/devtools-kit/-/devtools-kit-7.7.7.tgz#41a64f9526e9363331c72405544df020ce2e3641"
+  integrity sha512-wgoZtxcTta65cnZ1Q6MbAfePVFxfM+gq0saaeytoph7nEa7yMXoi6sCPy4ufO111B9msnw0VOWjPEFCXuAKRHA==
+  dependencies:
+    "@vue/devtools-shared" "^7.7.7"
+    birpc "^2.3.0"
+    hookable "^5.5.3"
+    mitt "^3.0.1"
+    perfect-debounce "^1.0.0"
+    speakingurl "^14.0.1"
+    superjson "^2.2.2"
 
 "@vue/devtools-kit@^8.0.3":
   version "8.0.3"
@@ -1150,6 +1175,13 @@
     perfect-debounce "^2.0.0"
     speakingurl "^14.0.1"
     superjson "^2.2.2"
+
+"@vue/devtools-shared@^7.7.7":
+  version "7.7.7"
+  resolved "https://registry.npmmirror.com/@vue/devtools-shared/-/devtools-shared-7.7.7.tgz#ff14aa8c1262ebac8c0397d3b09f767cd489750c"
+  integrity sha512-+udSj47aRl5aKb0memBvcUG9koarqnxNM5yjuREvqwK6T3ap4mn3Zqqc17QrBFTqSMjr3HK1cvStEZpMDpfdyw==
+  dependencies:
+    rfdc "^1.4.1"
 
 "@vue/devtools-shared@^8.0.3":
   version "8.0.3"
@@ -1375,6 +1407,11 @@ binary-extensions@^2.0.0:
   resolved "https://registry.npmmirror.com/binary-extensions/-/binary-extensions-2.3.0.tgz#f6e14a97858d327252200242d4ccfe522c445522"
   integrity sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==
 
+birpc@^2.3.0:
+  version "2.7.0"
+  resolved "https://registry.npmmirror.com/birpc/-/birpc-2.7.0.tgz#0dee0015e9b33910f275da2e8a2dc1b512a2ab0c"
+  integrity sha512-tub/wFGH49vNCm0xraykcY3TcRgX/3JsALYq/Lwrtti+bTyFHkCUAWF5wgYoie8P41wYwig2mIKiqoocr1EkEQ==
+
 birpc@^2.4.0, birpc@^2.6.1:
   version "2.6.1"
   resolved "https://registry.npmmirror.com/birpc/-/birpc-2.6.1.tgz#c73463590928897e80f3263d9fbb7da63515014b"
@@ -1496,6 +1533,11 @@ combined-stream@^1.0.8:
   integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@*:
+  version "14.0.2"
+  resolved "https://registry.npmmirror.com/commander/-/commander-14.0.2.tgz#b71fd37fe4069e4c3c7c13925252ada4eba14e8e"
+  integrity sha512-TywoWNNRbhoD0BXs1P3ZEScW8W5iKrnbithIl0YH+uCmBd0QpPOA8yc82DS3BIE5Ma6FnBVUsJ7wVUDz4dvOWQ==
 
 commander@^4.0.0:
   version "4.1.1"
@@ -2415,6 +2457,13 @@ mock@^0.1.1:
   resolved "https://registry.npmmirror.com/mock/-/mock-0.1.1.tgz#e7e3589c7e6b3376d69f5a3e470b56604417c633"
   integrity sha512-eJcWbgoaFUcPqU0g6AcuPKxoe83f7IPALr+dTwCwBN4Iuj4UlLzPtzUlsIpbLVzaXU0CkxP8PvLWKKlFDYdyCw==
 
+mockjs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmmirror.com/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
+  integrity sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==
+  dependencies:
+    commander "*"
+
 mrmime@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmmirror.com/mrmime/-/mrmime-2.0.1.tgz#bc3e87f7987853a54c9850eeb1f1078cd44adddc"
@@ -2638,6 +2687,11 @@ pathe@^2.0.1, pathe@^2.0.3:
   resolved "https://registry.npmmirror.com/pathe/-/pathe-2.0.3.tgz#3ecbec55421685b70a9da872b2cff3e1cbed1716"
   integrity sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==
 
+perfect-debounce@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/perfect-debounce/-/perfect-debounce-1.0.0.tgz#9c2e8bc30b169cc984a58b7d5b28049839591d2a"
+  integrity sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA==
+
 perfect-debounce@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/perfect-debounce/-/perfect-debounce-2.0.0.tgz#0ff94f1ecbe0a6bca4b1703a2ed08bbe43739aa7"
@@ -2667,6 +2721,13 @@ pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npmmirror.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==
+
+pinia@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/pinia/-/pinia-3.0.3.tgz#f412019bdeb2f45e85927b432803190343e12d89"
+  integrity sha512-ttXO/InUULUXkMHpTdp9Fj4hLpD/2AoJdmAbAeW2yu1iy1k+pkFekQXw5VpC0/5p51IOR/jDaDRfRWRnMMsGOA==
+  dependencies:
+    "@vue/devtools-api" "^7.7.2"
 
 pirates@^4.0.1:
   version "4.0.7"

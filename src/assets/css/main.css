@@ -1,0 +1,11 @@
+.el-card__content {
+  height: 100%;
+}
+
+.el-main {
+  background: rgba(218, 218, 218, 0.57);
+}
+
+.el-button {
+  margin: 0;
+}

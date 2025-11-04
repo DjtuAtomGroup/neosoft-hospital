@@ -6,12 +6,6 @@ import { IPage } from '../types'
 
 
 export type ITableConfig<T extends Record<string, never>> = {
-  border: boolean;
-  stripe: boolean;
-  pagination: boolean;
-  data: T[];
-  pageSize: number;
-  tableRef: Ref<never>;
   fetchData: (params?: Record<string, never>) => Promise<T[]>;
   searchData?: (params?: Record<string, never>) => Promise<T[]>;
 };
@@ -19,41 +13,35 @@ export type ITableConfig<T extends Record<string, never>> = {
 
 
 const useTable = (config: ITableConfig<never> = {}) => {
-  const { tableRef, border, stripe, pagination, data, columns, pageSize = 10, fetchData, searchData } = config;
+  const { fetchData, searchData } = config;
 
   const getData = async (params?: Record<string, never>) => {
-    if (tableRef.value) {
-      tableRef.value.loading = true;
-      const { code, data, message } = await fetchData(params);
-      if (code === 200) {
-        const { resultList } = data;
-        tableRef.value.data = resultList || [];
-        tableRef.value.loading = false;
-      } else {
-        Message.warning(message);
-        tableRef.value.data = [];
-        tableRef.value.loading = false;
-      }
+    const { status, data, message } = await fetchData(params);
+    if (status === 200) {
+      const { resultList } = data;
+      console.log('getData', resultList);
+      return resultList || [];
+    } else {
+      Message.warning(message);
+      return [];
     }
   };
 
   const handleSearch = async (val: string) => {
-    if (tableRef.value && searchData) {
+    if (searchData) {
       const queryBean = {
         property: val,
       };
-      const { code, data, message } = await searchData(queryBean);
-      tableRef.value.loading = true;
-      if (code === 200) {
+      const { status , data, message } = await searchData(queryBean);
+      if (status === 200) {
         const { resultList } = data;
-        tableRef.value.data = resultList || [];
-        tableRef.value.loading = false;
+        return resultList || [];
       } else {
         Message.warning(message);
-        tableRef.value.data = [];
-        tableRef.value.loading = false;
+        return [];
       }
     }
+    return [];
   };
 
   const getPageData = async (params: IPage) => {
@@ -62,12 +50,12 @@ const useTable = (config: ITableConfig<never> = {}) => {
       index,
       size,
     };
-    await getData(queryBean);
+    return await getData(queryBean);
   };
 
   const filterData = async (params?: Record<string, never>) => {
     if (!params) return;
-    await getData(params);
+    return await getData(params);
   };
 
   const filterPageData = async (params?: IPage<Record<string, never>>) => {
@@ -78,33 +66,25 @@ const useTable = (config: ITableConfig<never> = {}) => {
       size,
       data,
     };
-    await getPageData(queryBean);
-  };
-
-
-  const resetData = () => {
-    if (tableRef.value) {
-      tableRef.value.data = [];
-      tableRef.value.loading = false;
-    }
+    return await getPageData(queryBean);
   };
 
   const onSearch = async (val: string) => {
     if (searchData && val.trim() !== '') {
-      await handleSearch(val);
+      return await handleSearch(val);
     } else {
       Message.warning('请输入搜索内容');
+      return [];
     }
   };
 
 
   return {
-    resetData,
     getPageData,
     filterData,
     getData,
     filterPageData,
-    onSearch
+    onSearch,
   };
 };
 

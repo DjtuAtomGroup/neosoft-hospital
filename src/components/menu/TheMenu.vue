@@ -2,9 +2,8 @@
   <el-menu
     :default-active="activeIndex"
     :collapse="isCollapse"
-    :router="router"
     class="h-full"
-    background-color="#545c64"
+    background-color="#111827"
     text-color="#fff"
     active-text-color="#ffd04b"
   >
@@ -43,7 +42,7 @@ const props = withDefaults(defineProps<Partial<menuProps>>(), {
 const route = useRoute()
 const activeIndex = ref<string>('');
 const menuRoutes = ref<menuItemType[]>([]);
-const { isCollapse, router } = toRefs(props);
+const { isCollapse } = toRefs(props);
 
 const getMenuItems = (items: RouteRecordNormalized[]): menuItemType[] => {
   return items.map((item: RouteRecordNormalized) => {
@@ -111,7 +110,7 @@ const getActiveIndex = () => {
 onMounted(() => {
   getMenus();
   getActiveIndex();
-  console.log('menuRoutes:', menuRoutes.value);
+  // console.log('menuRoutes:', menuRoutes.value);
 });
 
 

@@ -19,13 +19,16 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
+    "@types/mockjs": "^1.0.10",
     "@types/nprogress": "^0.2.3",
     "autoprefixer": "^10.4.21",
     "axios": "^1.13.1",
     "element-plus": "^2.11.7",
     "lodash-es": "^4.17.21",
     "mock": "^0.1.1",
+    "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
+    "pinia": "^3.0.3",
     "unplugin-auto-import": "^20.2.0",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3"

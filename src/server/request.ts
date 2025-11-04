@@ -26,12 +26,13 @@ $request.interceptors.request.use((request) => {
 $request.interceptors.response.use((response) => {
   const { status, data, message } = response;
 
-  if (status !== 200) {
+  if (status === 200) {
+    return data;
+  } else {
     Message.error('请求失败', message);
     console.error('请求失败:', message);
     return Promise.reject(new Error(message || '请求失败'));
   }
-  return data;
 });
 
 export default $request;
