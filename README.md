@@ -5,6 +5,11 @@
 - 使用专门的模块，实现对/router/modules/xx/ 下的文件的自动扫描和自动导入
 - 自动生成对应的菜单等
 
+## 分支管理
+- master  主分支 作为基础管理系统模板，可用于任何管理系统的二次开发
+- feature 各种其他特性分支，完全体的东软实训位于 feature/mock 分支
+- fix  修复缺陷分支
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
