@@ -10,6 +10,30 @@
 - feature 各种其他特性分支，完全体的东软实训位于 feature/mock 分支
 - fix  修复缺陷分支
 
+## 项目技术栈
+- Vue
+- TypeScript
+- TailwindCSS
+- Axios
+- MockJS
+- Element-Plus
+- Pinia
+
+## 项目目录结构
+
+- src
+  - assets
+  - server
+    - api
+  - components
+  - views
+  - hook
+  - const
+  - utils
+  - router
+    - modules
+  - store
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
