@@ -38,8 +38,8 @@ const router = useRouter();
 const useStore = useUserStore();
 
 const logout = () => {
+  localStorage.removeItem('userInfo');
   router.push('/login');
-  // TODO clear localstorage similar token
 }
 
 const jump2userCenter = () => {

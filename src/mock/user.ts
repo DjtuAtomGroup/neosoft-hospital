@@ -1,6 +1,6 @@
 import setupMock, { successResponseWrap } from '../utils/setup-mock'
 import { DEFAULT_USER } from '../const'
-import { IEditUser } from '../types/common'
+import { IEditUser, IUserLogin } from '../types/common'
 import Mock from 'mockjs'
 
 
@@ -17,6 +17,10 @@ const updateUserDetail = (data: IEditUser) => {
   return '更新成功';
 };
 
+const userLogin = (data: IUserLogin) => {
+  return DEFAULT_USER;
+};
+
 
 setupMock({
   setup: () => {
@@ -28,6 +32,11 @@ setupMock({
     Mock.mock(new RegExp('/api/user/update'), 'post', (options) => {
       const data = JSON.parse(options.body) as IEditUser;
       return successResponseWrap(updateUserDetail(data));
+    });
+
+    Mock.mock(new RegExp('/api/user/login'), 'post', (options) => {
+      const data = JSON.parse(options.body) as IUserLogin;
+      return successResponseWrap(userLogin(data));
     });
   },
 });

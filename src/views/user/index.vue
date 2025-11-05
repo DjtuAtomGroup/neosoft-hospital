@@ -36,8 +36,8 @@ const activeIndex = ref<string>('view');
 
 const getUserDetail = async () => {
   const userInfo = localStorage.getItem('userInfo');
-  const { userId } = userInfo;
-  const res: never = await queryUserDetail(userId);
+  const { id } = userInfo;
+  const res: never = await queryUserDetail(id ?? '');
   const { status, data } = res;
   if (status === 200 && data) {
     user.value = data;

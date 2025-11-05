@@ -15,6 +15,11 @@ export type IEditUser = Omit<IUser, 'createAt' | 'updateAt' | 'disease'>;
 
 export type IPatient = Omit<IUser, 'role' | 'password'>;
 
+export type IUserLogin = {
+  username: string;
+  password: string;
+};
+
 
 
 export type IAppointment = {

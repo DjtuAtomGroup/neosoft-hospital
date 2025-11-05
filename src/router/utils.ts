@@ -1,5 +1,6 @@
 import { Router, RouteRecordNormalized } from 'vue-router'
 import NProgress from 'nprogress'
+import { isLogin } from '../utils'
 
 const setPageGuard = (router: Router) => {
   router.beforeEach((to, from, next) => {
@@ -9,6 +10,10 @@ const setPageGuard = (router: Router) => {
     }
 
     // if user not login redirect to login page
+    if (!isLogin() && to.path !== '/login') {
+      next({ name: 'Login' });
+      return;
+    }
 
     if (to.path === '/') {
       next({ name: 'IndexPage' });
