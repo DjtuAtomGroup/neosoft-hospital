@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { APPOINTMENT_STATUS } from '@/const'
 import { watchEffect } from 'vue'
-import { IAppointment, IEditPatient } from '@/types/common'
+import { IAppointment, IEditAppointment, IEditPatient } from '@/types/common'
 import { getUserId, Message } from '@/utils'
 import { addAppointment, updateAppointment } from '@/server/api/appointment'
 
@@ -81,8 +81,7 @@ const initData = () => {
 }
 
 const handleConfirm = async () => {
-  const params: IEditPatient = {
-    id: data.value?.id || '',
+  const params: IEditAppointment = {
     ...form,
   }
   if (mode.value === 'add') {

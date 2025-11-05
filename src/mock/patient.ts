@@ -1,13 +1,13 @@
-import Mock from 'mockjs';
-import setupMock, { successResponseWrap } from '../utils/setup-mock';
+import Mock from 'mockjs'
+import setupMock, { successResponseWrap } from '../utils/setup-mock'
 import { IPage } from '../types'
 import { patientDataType } from '../views/patient/index.vue'
 import { DISEASE_LIST } from '../const'
 import { IEditPatient } from '../types/common'
 
 const getPatientPage = (config: IPage<never>) => {
-  const records: patientDataType[] = [];
-  const { index, size } = config;
+  const records: patientDataType[] = []
+  const { index, size } = config
   // _newList 通过 index 和 size 生成模拟数据
   for (let i = 0; i < size; i++) {
     records.push({
@@ -20,55 +20,49 @@ const getPatientPage = (config: IPage<never>) => {
       disease: Mock.mock(`@pick(${DISEASE_LIST.join(',')}, 2)`).split(','),
       createTime: Mock.mock('@datetime'),
       updateTime: Mock.mock('@datetime'),
-    });
+    })
   }
-  const result = {
+  return {
     index: index,
     size: size,
     records: records,
     total: index * size,
-  };
-  return result;
-};
-
+  }
+}
 
 const updatePatient = (data: IEditPatient) => {
-  return '更新成功';
-};
-
+  return '更新成功'
+}
 
 const addPatient = (data: IEditPatient) => {
-  return '新增成功';
-};
+  return '新增成功'
+}
 
 const deletePatient = (id: string) => {
-  return '删除成功';
-};
-
-
+  return '删除成功'
+}
 
 setupMock({
   setup: () => {
     Mock.mock(new RegExp('/api/patient/page'), 'post', (options) => {
-      const config = JSON.parse(options.body);
-      const resultList = getPatientPage(config);
-      return successResponseWrap({ resultList });
-    });
+      const config = JSON.parse(options.body)
+      const resultList = getPatientPage(config)
+      return successResponseWrap({ resultList })
+    })
 
     Mock.mock(new RegExp('/api/patient/update'), 'post', (options) => {
-      const data = JSON.parse(options.body);
-      return successResponseWrap(updatePatient(data));
-    });
-
+      const data = JSON.parse(options.body)
+      return successResponseWrap(updatePatient(data))
+    })
 
     Mock.mock(new RegExp('/api/patient/add'), 'post', (options) => {
-      const data = JSON.parse(options.body);
-      return successResponseWrap(addPatient(data));
-    });
+      const data = JSON.parse(options.body)
+      return successResponseWrap(addPatient(data))
+    })
 
     Mock.mock(new RegExp('/api/patient/delete/\\w+'), 'post', (options) => {
-      const id = options.url?.split('/').pop();
-      return successResponseWrap(deletePatient(id as string));
-    });
+      const id = options.url?.split('/').pop()
+      return successResponseWrap(deletePatient(id as string))
+    })
   },
-});
+})

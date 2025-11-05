@@ -14,7 +14,7 @@ const medicine = {
       component: () => import('../../../views/medicine/index.vue'),
       meta: {
         title: '药品管理',
-        icon: 'Medicine',
+        icon: 'Apple',
       },
     },
   ],

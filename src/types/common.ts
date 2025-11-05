@@ -57,6 +57,9 @@ export type IMedicine = {
   status: number; // 0停售 1正常
 };
 
+
+export type IEditMedicine = Omit<IMedicine, 'createAt' | 'updateAt'>
+
 // 挂号
 export type IRegistration = {
   id: string;
