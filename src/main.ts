@@ -20,6 +20,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 app.use(router)
 app.use(pinia)
-app.use(directives);
+app.use(directives)
 
 app.mount('#app')

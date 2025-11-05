@@ -23,7 +23,7 @@
               v-for="(item, index) in MEDICINE_STATUS"
               :key="index"
               :value="item.value"
-            >{{ item.key }}</el-radio-button
+              >{{ item.key }}</el-radio-button
             >
           </el-radio-group>
         </el-form-item>

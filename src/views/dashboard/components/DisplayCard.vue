@@ -10,20 +10,19 @@
 </template>
 
 <script setup lang="ts">
-
 type displayCardProps = {
-  data: number;
-  shadow: 'never' | 'always' | 'hover';
-  title: string;
-};
+  data: number
+  shadow: 'never' | 'always' | 'hover'
+  title: string
+}
 
 const props = withDefaults(defineProps<displayCardProps>(), {
   data: 0,
   shadow: 'always',
   title: '展示数据',
-});
+})
 
-const { data, shadow, title } = toRefs(props);
+const { data, shadow, title } = toRefs(props)
 </script>
 
 <style scoped>

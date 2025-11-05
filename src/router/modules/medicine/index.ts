@@ -18,6 +18,6 @@ const medicine = {
       },
     },
   ],
-};
+}
 
-export default medicine;
+export default medicine

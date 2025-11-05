@@ -19,6 +19,6 @@ const patient = {
       },
     },
   ],
-};
+}
 
-export default patient;
+export default patient

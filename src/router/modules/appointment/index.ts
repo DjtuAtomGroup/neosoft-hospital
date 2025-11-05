@@ -19,6 +19,6 @@ const appointment = {
       },
     },
   ],
-};
+}
 
-export default appointment;
+export default appointment

@@ -21,7 +21,7 @@
               v-for="(item, index) in REGISTER_STATUS"
               :key="index"
               :value="item.value"
-            >{{ item.key }}</el-radio-button
+              >{{ item.key }}</el-radio-button
             >
           </el-radio-group>
         </el-form-item>

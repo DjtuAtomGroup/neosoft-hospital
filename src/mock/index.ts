@@ -1,8 +1,8 @@
-import Mock from 'mockjs';
+import Mock from 'mockjs'
 
 Mock.setup({
-  timeout: '600-1000'
-});
+  timeout: '600-1000',
+})
 
 // 引入所有mock文件
-import '../mock/entry';
+import '../mock/entry'

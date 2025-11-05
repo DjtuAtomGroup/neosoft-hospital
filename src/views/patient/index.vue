@@ -28,7 +28,13 @@
             <el-table-column label="操作" :fixed="'right'">
               <template #default="{ row }">
                 <div class="w-full h-auto gap-4 flex items-center justify-center">
-                  <el-button v-permission="'doctor'" type="primary" size="small" @click="editPatient(row)">编辑</el-button>
+                  <el-button
+                    v-permission="'doctor'"
+                    type="primary"
+                    size="small"
+                    @click="editPatient(row)"
+                    >编辑</el-button
+                  >
                   <el-popconfirm title="确定删除该患者吗？" @confirm="handleDelete(row.id)">
                     <template #reference>
                       <el-button v-permission="'doctor'" type="danger" size="small">删除</el-button>
@@ -44,11 +50,20 @@
         </el-card>
       </div>
       <div class="w-full flex-1 justify-end items-center flex">
-        <el-pagination layout="prev, pager, next" :total="page.total" @current-change="hanldePageChange" />
+        <el-pagination
+          layout="prev, pager, next"
+          :total="page.total"
+          @current-change="hanldePageChange"
+        />
       </div>
     </div>
   </div>
-  <EditPatientModal v-model:show="showModal" :data="currentRow" :mode="modalMode" @submit="refreshData" />
+  <EditPatientModal
+    v-model:show="showModal"
+    :data="currentRow"
+    :mode="modalMode"
+    @submit="refreshData"
+  />
 </template>
 
 <script setup lang="ts">
@@ -59,69 +74,69 @@ import EditPatientModal from '@/views/patient/components/EditPatientModal.vue'
 import { IPatient } from '@/types/common'
 import { ElMessage } from 'element-plus'
 
-const isLoading = ref<boolean>(false);
-const modalMode = ref<'add' | 'edit'>('add');
-const dataList = ref<IPatient[]>([]);
-const showModal = ref<boolean>(false);
-const currentRow = ref<IPatient | null>(null);
+const isLoading = ref<boolean>(false)
+const modalMode = ref<'add' | 'edit'>('add')
+const dataList = ref<IPatient[]>([])
+const showModal = ref<boolean>(false)
+const currentRow = ref<IPatient | null>(null)
 const page = reactive({
   index: 1,
   size: 10,
   total: 0,
-});
-const { getPageData } = useTable<{ index: number; size: number }, IPatient>({ fetchData: queryPatientPage });
+})
+const { getPageData } = useTable<{ index: number; size: number }, IPatient>({
+  fetchData: queryPatientPage,
+})
 
 const initData = async () => {
-  isLoading.value = true;
-  const data = await getPageData({ index: page.index, size: page.size });
-  const { records, total, index, size } = data;
-  dataList.value = records;
-  page.index = index;
-  page.size = size;
-  page.total = total;
-  isLoading.value = false;
+  isLoading.value = true
+  const data = await getPageData({ index: page.index, size: page.size })
+  const { records, total, index, size } = data
+  dataList.value = records
+  page.index = index
+  page.size = size
+  page.total = total
+  isLoading.value = false
 }
 const refreshData = async () => {
-  isLoading.value = true;
-  const data = await getPageData({ index: page.index, size: page.size });
-  const { records, total, index, size } = data;
-  dataList.value = records;
-  page.index = index;
-  page.size = size;
-  page.total = total;
-  isLoading.value = false;
+  isLoading.value = true
+  const data = await getPageData({ index: page.index, size: page.size })
+  const { records, total, index, size } = data
+  dataList.value = records
+  page.index = index
+  page.size = size
+  page.total = total
+  isLoading.value = false
 }
 
 const addPatient = () => {
-  showModal.value = true;
-  modalMode.value = 'add';
-  currentRow.value = null;
+  showModal.value = true
+  modalMode.value = 'add'
+  currentRow.value = null
 }
 
 const editPatient = (row: patientDataType) => {
   // console.log('editPatient', row);
-  showModal.value = true;
-  modalMode.value = 'edit';
-  currentRow.value = row;
+  showModal.value = true
+  modalMode.value = 'edit'
+  currentRow.value = row
 }
 
 const handleDelete = async (index: string) => {
-  const res: never = await deletePatient(index);
-  const { message } = res;
-  ElMessage.success(message);
-  await refreshData();
-};
+  const res: never = await deletePatient(index)
+  const { message } = res
+  ElMessage.success(message)
+  await refreshData()
+}
 
 const hanldePageChange = async (index: number) => {
-  page.index = index;
-  await refreshData();
-};
+  page.index = index
+  await refreshData()
+}
 
 onMounted(() => {
-  initData();
-});
+  initData()
+})
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

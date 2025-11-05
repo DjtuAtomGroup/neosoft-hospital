@@ -18,34 +18,32 @@
 import { ArrowLeft } from '@element-plus/icons-vue'
 
 type pageHeaderProps = {
-  content: string;
-  callback: () => void;
-  showBack: boolean;
-};
+  content: string
+  callback: () => void
+  showBack: boolean
+}
 
 const props = withDefaults(defineProps<Partial<pageHeaderProps>>(), {
   content: '',
   callback: () => {},
   showBack: true,
-});
+})
 
-const { content, callback, showBack } = toRefs(props);
+const { content, callback, showBack } = toRefs(props)
 
 const pageHeaderContent = computed(() => {
-  return content.value || 'Page Header';
-});
+  return content.value || 'Page Header'
+})
 
-const router = useRouter();
+const router = useRouter()
 
 const onBack = async () => {
   if (showBack.value && callback.value) {
-    await callback.value();
+    await callback.value()
   } else {
-    router.back(-1);
+    router.back(-1)
   }
-};
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

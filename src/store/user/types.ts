@@ -1,9 +1,9 @@
 import { IUser } from '../../types/common'
 
 export type userStoreType = IUser & {
-  token: string;
-};
+  token: string
+}
 
 export type userStoreState = {
-  user: userStoreType | null;
-};
+  user: userStoreType | null
+}

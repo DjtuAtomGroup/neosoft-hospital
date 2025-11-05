@@ -2,9 +2,8 @@ import setupMock, { successResponseWrap } from '../utils/setup-mock'
 import { IDashboard } from '../types/common'
 import Mock from 'mockjs'
 
-
 const queryDashboard = (userId: string) => {
-  let result: IDashboard = {};
+  let result: IDashboard = {}
   if (userId === '1111') {
     result = {
       patientCount: Mock.mock('@integer(100, 1000)'),
@@ -20,16 +19,14 @@ const queryDashboard = (userId: string) => {
       doctorCount: Mock.mock('@integer(100, 1000)'),
     }
   }
-  return result;
+  return result
 }
-
-
 
 setupMock({
   setup: () => {
     Mock.mock(new RegExp('/api/dashboard'), 'post', (options) => {
-      const userId = JSON.parse(options.body)?.userId;
+      const userId = JSON.parse(options.body)?.userId
       return successResponseWrap(queryDashboard(userId as string))
-    });
+    })
   },
-});
+})

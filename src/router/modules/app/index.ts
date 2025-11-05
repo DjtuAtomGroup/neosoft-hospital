@@ -24,10 +24,10 @@ const app = {
       component: () => import('../../../views/dashboard/index.vue'),
       meta: {
         title: '仪表盘',
-        icon: 'Odometer'
+        icon: 'Odometer',
       },
     },
   ],
-};
+}
 
-export default app;
+export default app

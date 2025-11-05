@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import { userStoreState, userStoreType } from './types'
 
-
 const useUserStore = defineStore('user', {
   state: (): userStoreState => ({
     user: null,
@@ -17,17 +16,15 @@ const useUserStore = defineStore('user', {
     getRole: (state) => state.user?.role ?? '',
   },
 
-
   actions: {
     updateUser(user: userStoreType) {
-      this.user = user;
+      this.user = user
     },
 
     clearUser() {
-      this.user = null;
+      this.user = null
     },
   },
-});
+})
 
-
-export default useUserStore;
+export default useUserStore

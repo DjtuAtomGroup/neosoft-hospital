@@ -34,21 +34,21 @@ import TheHeader from '@/components/TheHeader.vue'
 import useUserStore from '@/store/user'
 import { DEFAULT_AVATAR, DEFAULT_USER } from '@/const'
 
-const router = useRouter();
-const useStore = useUserStore();
+const router = useRouter()
+const useStore = useUserStore()
 
 const logout = () => {
-  localStorage.removeItem('userInfo');
-  router.push('/login');
+  localStorage.removeItem('userInfo')
+  router.push('/login')
 }
 
 const jump2userCenter = () => {
-  router.push('/user/index');
-};
+  router.push('/user/index')
+}
 
 onMounted(() => {
-  useStore.updateUser(DEFAULT_USER);
-});
+  useStore.updateUser(DEFAULT_USER)
+})
 </script>
 
 <style scoped>

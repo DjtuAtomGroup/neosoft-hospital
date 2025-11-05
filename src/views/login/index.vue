@@ -1,5 +1,7 @@
 <template>
-  <div class="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-400 to-blue-800 p-4 gap-4">
+  <div
+    class="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-400 to-blue-800 p-4 gap-4"
+  >
     <div class="w-auto h-auto flex">
       <el-card header="登录" shadow="never" style="width: 500px">
         <div class="w-full h-auto flex flex-col">
@@ -26,37 +28,35 @@ import { userLogin } from '@/server/api/user'
 import useUserStore from '@/store/user'
 import { Notice } from '@/utils'
 
-const formRef = ref();
+const formRef = ref()
 const form = reactive({
   username: '',
   password: '',
-});
-const router = useRouter();
-const userStore = useUserStore();
+})
+const router = useRouter()
+const userStore = useUserStore()
 
 const handleSubmit = async () => {
   const params: IUserLogin = {
     username: form.username,
     password: form.password,
-  };
+  }
   if (formRef.value.validate()) {
-    const res = await userLogin(params);
-    const { status, data } = res;
+    const res = await userLogin(params)
+    const { status, data } = res
     if (status === 200 && data) {
-      localStorage.setItem('userInfo', JSON.stringify(data));
-      userStore.updateUser(data);
-      await router.push('/index');
+      localStorage.setItem('userInfo', JSON.stringify(data))
+      userStore.updateUser(data)
+      await router.push('/index')
       Notice({
         type: 'success',
         message: '登录成功',
-      });
+      })
     } else {
-      ElMessage.error('登录失败，请检查用户名和密码');
+      ElMessage.error('登录失败，请检查用户名和密码')
     }
   }
-};
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

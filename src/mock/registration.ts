@@ -1,7 +1,6 @@
 import setupMock, { successResponseWrap } from '../utils/setup-mock'
 import Mock from 'mockjs'
 
-
 const getRegistrationPage = (config: IPage<never>) => {
   const records: IRegistration[] = []
   const { index, size } = config
@@ -25,8 +24,6 @@ const getRegistrationPage = (config: IPage<never>) => {
     total: index * size,
   }
 }
-
-
 
 setupMock({
   setup: () => {
@@ -61,4 +58,4 @@ setupMock({
       return successResponseWrap({ status: 200, message: '取消挂号成功' })
     })
   },
-});
+})

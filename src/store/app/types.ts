@@ -1,9 +1,9 @@
 import { IDashboard } from '../../types/common'
 
 export type appStoreState = {
-  isOnline: boolean;
+  isOnline: boolean
   dashboardData: {
-    data: IDashboard | null;
-    isEmpty: boolean;
-  };
-};
+    data: IDashboard | null
+    isEmpty: boolean
+  }
+}

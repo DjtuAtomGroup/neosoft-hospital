@@ -36,7 +36,12 @@
         </el-form-item>
         <el-form-item label="角色" :required="requiredFields">
           <el-select v-model="form.role" placeholder="请选择角色" :disabled="isEditable">
-            <el-option v-for="(item, index) in USER_ROLE" :key="index" :label="item.key" :value="item.value" />
+            <el-option
+              v-for="(item, index) in USER_ROLE"
+              :key="index"
+              :label="item.key"
+              :value="item.value"
+            />
           </el-select>
         </el-form-item>
       </el-form>
@@ -65,7 +70,7 @@ const props = withDefaults(defineProps<userInfoProps>(), {
 
 const { mode, data } = toRefs(props)
 
-const formRef = ref();
+const formRef = ref()
 const form = reactive<IUser>({
   id: data.value?.id ?? '',
   name: data.value?.name ?? '',
@@ -79,12 +84,12 @@ const form = reactive<IUser>({
 })
 
 const initData = () => {
-  form.name = data.value?.name ?? '';
-  form.age = data.value?.age ?? 0;
-  form.gender = data.value?.gender ?? 0;
-  form.disease = data.value?.disease ?? [];
-  form.password = data.value?.password ?? '';
-  form.role = data.value?.role ?? '';
+  form.name = data.value?.name ?? ''
+  form.age = data.value?.age ?? 0
+  form.gender = data.value?.gender ?? 0
+  form.disease = data.value?.disease ?? []
+  form.password = data.value?.password ?? ''
+  form.role = data.value?.role ?? ''
 }
 
 const requiredFields = computed(() => {
@@ -106,21 +111,20 @@ const handleSubmit = async () => {
     password: form.password,
     role: form.role,
   }
-  const res = await updateUser(params);
-  console.log('updateUser response:', res);
-  const { status } = res;
+  const res = await updateUser(params)
+  console.log('updateUser response:', res)
+  const { status } = res
   if (status === 200) {
-    Message.success('更新用户信息成功');
-    emits('update');
+    Message.success('更新用户信息成功')
+    emits('update')
   } else {
-    console.error('Failed to update user:', res);
-    Message.warning('更新用户信息失败');
+    console.error('Failed to update user:', res)
+    Message.warning('更新用户信息失败')
   }
 }
 
-
 watchEffect(() => {
-  initData();
+  initData()
 })
 </script>
 

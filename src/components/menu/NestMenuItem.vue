@@ -20,8 +20,8 @@
 import { menuItemType } from '@/components/menu/TheMenu.vue'
 
 type menuProps = {
-  item: menuItemType;
-};
+  item: menuItemType
+}
 
 const props = withDefaults(defineProps<menuProps>(), {
   item: () => ({
@@ -31,16 +31,14 @@ const props = withDefaults(defineProps<menuProps>(), {
     icon: '',
     hide: false,
   }),
-});
+})
 
-const { item } = toRefs(props);
-const router = useRouter();
+const { item } = toRefs(props)
+const router = useRouter()
 
 const handleMenuItemClick = (path: string) => {
-  router.push(path);
+  router.push(path)
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
