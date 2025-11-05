@@ -2,6 +2,7 @@
   <el-menu
     :default-active="activeIndex"
     :collapse="isCollapse"
+    :unique-opened="true"
     class="h-full"
     background-color="#111827"
     text-color="#fff"

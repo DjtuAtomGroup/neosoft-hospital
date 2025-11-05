@@ -32,8 +32,7 @@
 
 <script setup lang="ts">
 import { APPOINTMENT_STATUS } from '@/const'
-import { watchEffect } from 'vue'
-import { IAppointment, IEditAppointment, IEditPatient } from '@/types/common'
+import { IAppointment, IEditAppointment } from '@/types/common'
 import { getUserId, Message } from '@/utils'
 import { addAppointment, updateAppointment } from '@/server/api/appointment'
 

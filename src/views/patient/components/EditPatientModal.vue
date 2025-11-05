@@ -32,7 +32,6 @@
 
 <script setup lang="ts">
 import { DISEASE_LIST } from '@/const'
-import { watchEffect } from 'vue'
 import { IEditPatient, IPatient } from '@/types/common'
 import { addPatient, updatePatient } from '@/server/api/patient'
 import { Message } from '@/utils'
