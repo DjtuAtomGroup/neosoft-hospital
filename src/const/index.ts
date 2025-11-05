@@ -1,4 +1,5 @@
 import { userStoreType } from '../store/user/types'
+import { IKVType } from '../types'
 
 export const PAGE_HEADER_CONTENT = '东软云医院管理系统 - 闫家辉'
 
@@ -18,3 +19,29 @@ export const DEFAULT_USER: userStoreType = {
 };
 
 export const DEFAULT_AVATAR = 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png';
+
+// 0 已挂号 1 已完成 2 退号
+export const REGISTER_STATUS: IKVType[] = [
+  { key: '已挂号', value: 0 },
+  { key: '已完成', value: 1 },
+  { key: '退号', value: 2 },
+];
+
+// 0停售 1正常
+export const MEDICINE_STATUS: IKVType[] = [
+  { key: '停售', value: 0 },
+  { key: '正常', value: 1 },
+];
+
+// 0 待就诊 1 已完成 2 已取消
+export const APPOINTMENT_STATUS: IKVType[] = [
+  { key: '待就诊', value: 0 },
+  { key: '已完成', value: 1 },
+  { key: '已取消', value: 2 },
+];
+
+// doctor - 医生 patient - 患者
+export const USER_ROLE: IKVType[] = [
+  { key: '医生', value: 'doctor' },
+  { key: '患者', value: 'patient' },
+];

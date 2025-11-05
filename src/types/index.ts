@@ -4,3 +4,8 @@ export type IPage<T extends Record<string, never>> = {
   total?: number;
   data?: T;
 }
+
+export type IKVType = {
+  key: string;
+  value: string;
+};

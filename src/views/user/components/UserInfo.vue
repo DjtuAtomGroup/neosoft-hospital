@@ -35,7 +35,9 @@
           />
         </el-form-item>
         <el-form-item label="角色" :required="requiredFields">
-          <el-input v-model="form.role" placeholder="请输入角色" :disabled="isEditable" />
+          <el-select v-model="form.role" placeholder="请选择角色" :disabled="isEditable">
+            <el-option v-for="(item, index) in USER_ROLE" :key="index" :label="item.key" :value="item.value" />
+          </el-select>
         </el-form-item>
       </el-form>
       <div v-if="requiredFields" class="w-full h-auto flex items-center justify-end">
@@ -47,7 +49,7 @@
 
 <script setup lang="ts">
 import { IEditUser, IUser } from '@/types/common'
-import { DEFAULT_AVATAR } from '@/const'
+import { DEFAULT_AVATAR, USER_ROLE } from '@/const'
 import { Message } from '@/utils'
 import { updateUser } from '@/server/api/user'
 

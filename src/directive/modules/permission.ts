@@ -8,7 +8,7 @@ function checkPermission(el: HTMLElement, binding: DirectiveBinding) {
   if (permissions.length > 0 && !permissions.includes(value)) {
     el.style.display = 'none';
   } else {
-    el.style.display = 'block';
+    el.style.display = 'flex';
   }
 }
 

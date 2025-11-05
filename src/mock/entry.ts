@@ -2,3 +2,4 @@
 import './patient'
 import './dashboard'
 import './user'
+import './appointment'
