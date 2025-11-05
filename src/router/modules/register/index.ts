@@ -19,6 +19,6 @@ const register = {
       },
     },
   ],
-};
+}
 
-export default register;
+export default register

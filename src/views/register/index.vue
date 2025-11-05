@@ -2,7 +2,9 @@
   <div class="w-full h-full flex flex-col gap-4">
     <PageHeader content="挂号管理">
       <template #action>
-        <el-button v-permission="'patient'" type="primary" @click="addRegistration">新增挂号</el-button>
+        <el-button v-permission="'patient'" type="primary" @click="addRegistration"
+          >新增挂号</el-button
+        >
         <el-button type="warning" @click="refreshData">刷新</el-button>
       </template>
     </PageHeader>
@@ -33,7 +35,7 @@
                     type="primary"
                     size="small"
                     @click="editRegistration(row)"
-                  >编辑</el-button
+                    >编辑</el-button
                   >
                   <!-- 取消挂号 -->
                   <el-button
@@ -41,7 +43,8 @@
                     type="warning"
                     size="small"
                     @click="cancelRegistration(row.id)"
-                  >取消</el-button>
+                    >取消</el-button
+                  >
                   <el-popconfirm title="确定删除该挂号吗？" @confirm="handleDelete(row.id)">
                     <template #reference>
                       <el-button v-permission="'doctor'" type="danger" size="small">删除</el-button>

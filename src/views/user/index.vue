@@ -29,45 +29,41 @@ import { userStoreType } from '@/store/user/types'
 import UserInfo from '@/views/user/components/UserInfo.vue'
 import { queryUserDetail } from '@/server/api/user'
 
-const userStore = useUserStore();
-const user = ref<userStoreType | null>();
-const activeIndex = ref<string>('view');
-
+const userStore = useUserStore()
+const user = ref<userStoreType | null>()
+const activeIndex = ref<string>('view')
 
 const getUserDetail = async () => {
-  const userInfo = localStorage.getItem('userInfo');
-  const { id } = userInfo;
-  const res: never = await queryUserDetail(id ?? '');
-  const { status, data } = res;
+  const userInfo = localStorage.getItem('userInfo')
+  const { id } = userInfo
+  const res: never = await queryUserDetail(id ?? '')
+  const { status, data } = res
   if (status === 200 && data) {
-    user.value = data;
-    userStore.updateUser(data);
+    user.value = data
+    userStore.updateUser(data)
   } else {
-    console.error('Failed to fetch user data:', res);
-    user.value = null;
+    console.error('Failed to fetch user data:', res)
+    user.value = null
   }
 }
 
-
-
 const initData = async () => {
-  const data = userStore.getUser;
+  const data = userStore.getUser
   if (data) {
-    user.value = data;
+    user.value = data
   } else {
-    await getUserDetail();
+    await getUserDetail()
   }
-};
+}
 
 const handleUpdateDetail = async () => {
-  activeIndex.value = 'view';
-  await getUserDetail();
-};
-
+  activeIndex.value = 'view'
+  await getUserDetail()
+}
 
 onMounted(() => {
-  initData();
-});
+  initData()
+})
 </script>
 
 <style scoped>

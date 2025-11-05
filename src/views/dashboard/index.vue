@@ -47,13 +47,13 @@ import useAppStore from '@/store/app'
 const dataList = ref<IDashboard | null>(null)
 const isLoading = ref<boolean>(false)
 const userStore = useUserStore()
-const appStore = useAppStore();
+const appStore = useAppStore()
 const showDocPanel = computed(() => {
   return userStore.getRole === 'doctor'
 })
 const isOnLine = ref<boolean>(false)
 const onLineType = computed(() => {
-  const onLineStatus = appStore.getOnlineStatus;
+  const onLineStatus = appStore.getOnlineStatus
   return onLineStatus ? 'success' : 'warning'
 })
 
@@ -65,7 +65,7 @@ const getData = async () => {
   isLoading.value = false
   if (status === 200) {
     dataList.value = data
-    appStore.updateDashboardData(data);
+    appStore.updateDashboardData(data)
   } else {
     console.error('获取数据失败:', message)
     dataList.value = null
@@ -74,7 +74,7 @@ const getData = async () => {
 
 const handleOnlineOrOffline = () => {
   isOnLine.value = !isOnLine.value
-  appStore.updateOnlineStatus(isOnLine.value);
+  appStore.updateOnlineStatus(isOnLine.value)
   Notice({
     type: isOnLine.value ? 'success' : 'warning',
     message: isOnLine.value ? '已上线' : '已下线',
@@ -83,9 +83,9 @@ const handleOnlineOrOffline = () => {
 
 onMounted(() => {
   if (appStore.isDashboardEmpty) {
-    getData();
+    getData()
   } else {
-    dataList.value = appStore.getDashboardData;
+    dataList.value = appStore.getDashboardData
   }
 })
 </script>
