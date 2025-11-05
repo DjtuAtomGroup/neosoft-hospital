@@ -3,14 +3,17 @@ export type IUser = {
   name: string;
   gender: number;
   disease: string[];
+  password: string;
   age: number;
   role: string;
   createAt: string
   updateAt: string;
 };
 
+export type IEditUser = Omit<IUser, 'createAt' | 'updateAt' | 'disease'>;
 
-export type IPatient = Omit<IUser, 'role'>;
+
+export type IPatient = Omit<IUser, 'role' | 'password'>;
 
 
 

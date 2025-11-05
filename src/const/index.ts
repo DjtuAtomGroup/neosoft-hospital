@@ -9,8 +9,12 @@ export const DEFAULT_USER: userStoreType = {
   name: '默认用户',
   gender: 0,
   disease: [],
-  age: 0,
+  age: 25,
+  password: '123456',
+  token: 'ejh-token',
   role: 'doctor',
   createAt: '2023-01-01 00:00:00',
   updateAt: '2023-01-01 00:00:00',
 };
+
+export const DEFAULT_AVATAR = 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png';

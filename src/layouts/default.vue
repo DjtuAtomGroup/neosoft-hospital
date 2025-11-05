@@ -5,10 +5,10 @@
         <TheHeader>
           <template #action>
             <el-dropdown placement="bottom">
-              <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" shape="square" />
+              <el-avatar :src="DEFAULT_AVATAR" shape="square" />
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item>用户中心</el-dropdown-item>
+                  <el-dropdown-item @click="jump2userCenter">用户中心</el-dropdown-item>
                   <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
@@ -32,7 +32,7 @@
 import { TheMenu } from '@/components'
 import TheHeader from '@/components/TheHeader.vue'
 import useUserStore from '@/store/user'
-import { DEFAULT_USER } from '@/const'
+import { DEFAULT_AVATAR, DEFAULT_USER } from '@/const'
 
 const router = useRouter();
 const useStore = useUserStore();
@@ -41,6 +41,10 @@ const logout = () => {
   router.push('/login');
   // TODO clear localstorage similar token
 }
+
+const jump2userCenter = () => {
+  router.push('/user/index');
+};
 
 onMounted(() => {
   useStore.updateUser(DEFAULT_USER);
