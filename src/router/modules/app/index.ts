@@ -1,7 +1,9 @@
+import { DEFAULT_LAYOUT } from '../../layout'
+
 const app = {
   path: '/',
   name: 'Index',
-  component: () => import('../../../layouts/default.vue'),
+  component: DEFAULT_LAYOUT,
   meta: {
     title: '首页',
   },

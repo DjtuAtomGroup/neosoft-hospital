@@ -1,7 +1,9 @@
+import { DEFAULT_LAYOUT } from '../../layout'
+
 const appointment = {
   path: '/appointment',
   name: 'Appointment',
-  component: () => import('../../../layouts/default.vue'),
+  component: DEFAULT_LAYOUT,
   meta: {
     title: '预约管理',
   },

@@ -5,4 +5,4 @@ Mock.setup({
 });
 
 // 引入所有mock文件
-import './patient';
+import '../mock/entry';

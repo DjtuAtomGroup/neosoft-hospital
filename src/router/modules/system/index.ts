@@ -1,9 +1,12 @@
+import { DEFAULT_LAYOUT } from '../../layout'
+
 const system = {
   path: '/system',
   name: 'System',
-  component: () => import('../../../layouts/default.vue'),
+  component: DEFAULT_LAYOUT,
   meta: {
     title: '系统管理',
+    permission: ['doctor'],
   },
   children: [
     {
@@ -21,7 +24,7 @@ const system = {
       name: 'PermissionIndex',
       component: () => import('../../../views/system/permission/index.vue'),
       meta: {
-        // hideInMenu: true, 不需要在菜单中显示
+        // hideInMenu: true, 不需要在菜单中 显示
         title: '权限管理',
         icon: 'Lock',
       },

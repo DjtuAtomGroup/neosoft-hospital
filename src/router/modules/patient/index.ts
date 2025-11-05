@@ -1,9 +1,12 @@
+import { DEFAULT_LAYOUT } from '../../layout'
+
 const patient = {
   path: '/patient',
   name: 'Patient',
-  component: () => import('../../../layouts/default.vue'),
+  component: DEFAULT_LAYOUT,
   meta: {
     title: '患者',
+    permission: ['doctor'],
   },
   children: [
     {

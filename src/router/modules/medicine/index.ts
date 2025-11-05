@@ -1,7 +1,9 @@
+import { DEFAULT_LAYOUT } from '../../layout'
+
 const medicine = {
   path: '/medicine',
   name: 'Medicine',
-  component: () => import('../../../layouts/default.vue'),
+  component: DEFAULT_LAYOUT,
   meta: {
     title: '药品',
   },

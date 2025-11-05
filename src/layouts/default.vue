@@ -31,13 +31,20 @@
 <script setup lang="ts">
 import { TheMenu } from '@/components'
 import TheHeader from '@/components/TheHeader.vue'
+import useUserStore from '@/store/user'
+import { DEFAULT_USER } from '@/const'
 
 const router = useRouter();
+const useStore = useUserStore();
 
 const logout = () => {
   router.push('/login');
   // TODO clear localstorage similar token
 }
+
+onMounted(() => {
+  useStore.updateUser(DEFAULT_USER);
+});
 </script>
 
 <style scoped>

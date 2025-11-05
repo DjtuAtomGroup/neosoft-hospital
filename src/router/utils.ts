@@ -8,6 +8,8 @@ const setPageGuard = (router: Router) => {
       document.title = to.meta.title as string;
     }
 
+    // if user not login redirect to login page
+
     if (to.path === '/') {
       next({ name: 'IndexPage' });
       return;

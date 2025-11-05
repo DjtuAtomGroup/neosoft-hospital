@@ -1,7 +1,9 @@
+import { DEFAULT_LAYOUT } from '../../layout'
+
 const register = {
   path: '/register',
   name: 'Register',
-  component: () => import('../../../layouts/default.vue'),
+  component: DEFAULT_LAYOUT,
   meta: {
     title: '挂号管理',
   },

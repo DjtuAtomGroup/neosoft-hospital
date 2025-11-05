@@ -21,7 +21,7 @@ const router = createRouter({
   }
 })
 
-console.log(appRoutes);
+// console.log(appRoutes);
 
 createRouteGuard(router);
 
