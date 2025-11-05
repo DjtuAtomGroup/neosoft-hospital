@@ -24,3 +24,12 @@ export type IAppointment = {
 };
 
 export type IEditPatient = Omit<IPatient, 'createAt' | 'updateAt'>
+
+
+export type IDashboard = {
+  patientCount: number;
+  appointmentCount?: number; // 预约数 仅在医生页面显示
+  medicineCount: number;
+  doctorCount: number;
+  registrationCount?: number; // 挂号数 仅在医生页面显示
+};

@@ -8,11 +8,13 @@ const useUserStore = defineStore('user', {
   }),
 
   getters: {
-    getUser: (state) => state.user,
+    getUser: (state) => state.user ?? {},
 
     getToken: (state) => state.user?.token ?? '',
 
     getPermissions: (state) => [state.user?.role ?? ''] ?? [],
+
+    getRole: (state) => state.user?.role ?? '',
   },
 
 

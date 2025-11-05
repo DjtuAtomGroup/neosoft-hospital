@@ -1,3 +1,5 @@
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElNotification } from 'element-plus'
 
 export const Message = ElMessage;
+
+export const Notice = ElNotification;

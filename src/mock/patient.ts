@@ -33,28 +33,16 @@ const getPatientPage = (config: IPage<never>) => {
 
 
 const updatePatient = (data: IEditPatient) => {
-  return {
-    status: 200,
-    message: '更新成功',
-    data: 'ok',
-  };
+  return '更新成功';
 };
 
 
 const addPatient = (data: IEditPatient) => {
-  return {
-    status: 200,
-    message: '新增成功',
-    data: 'ok',
-  };
+  return '新增成功';
 };
 
 const deletePatient = (id: string) => {
-  return {
-    status: 200,
-    message: '删除成功',
-    data: 'ok',
-  };
+  return '删除成功';
 };
 
 
