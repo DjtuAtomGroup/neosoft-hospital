@@ -53,7 +53,7 @@
         <el-pagination
           layout="prev, pager, next"
           :total="page.total"
-          @current-change="hanldePageChange"
+          @current-change="handlePageChange"
         />
       </div>
     </div>
@@ -129,7 +129,7 @@ const handleDelete = async (index: string) => {
   await refreshData()
 }
 
-const hanldePageChange = async (index: number) => {
+const handlePageChange = async (index: number) => {
   page.index = index
   await refreshData()
 }

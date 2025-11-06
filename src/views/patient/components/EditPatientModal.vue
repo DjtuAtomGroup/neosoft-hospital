@@ -62,6 +62,7 @@ const props = withDefaults(defineProps<addProp>(), {
 const { show, mode, data } = toRefs(props)
 
 const form = reactive({
+  id: '',
   name: '',
   age: '',
   gender: '0',
@@ -81,11 +82,13 @@ const title = computed(() => {
 
 const initData = () => {
   if (mode.value === 'edit') {
+    form.id = data.value?.id || ''
     form.name = data.value?.name || ''
     form.age = String(data.value?.age) || ''
     form.gender = data.value?.gender || 0
     form.disease = data.value?.disease || []
   } else {
+    form.id = ''
     form.name = ''
     form.age = 18
     form.gender = 0
@@ -96,7 +99,6 @@ const initData = () => {
 
 const handleConfirm = async () => {
   const params: IEditPatient = {
-    id: data.value?.id || '',
     ...form,
   }
   if (mode.value === 'add') {

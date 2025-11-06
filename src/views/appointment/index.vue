@@ -30,7 +30,7 @@
                     v-permission="'doctor'"
                     type="warning"
                     size="small"
-                    @click="handleAppointmentFinish(row)"
+                    @click="handleAppointmentFinish(row?.id)"
                     >接诊</el-button
                   >
                   <el-button
@@ -138,9 +138,8 @@ const handleDelete = async (index: string) => {
   await refreshData()
 }
 
-const handleAppointmentFinish = async (row: IAppointment) => {
-  const { id } = row
-  const res: never = await finishAppointment(id)
+const handleAppointmentFinish = async (index: string) => {
+  const res: never = await finishAppointment(index)
   const { message } = res
   ElMessage.success(message)
   await refreshData()

@@ -42,7 +42,7 @@
                     v-permission="'patient'"
                     type="warning"
                     size="small"
-                    @click="cancelRegistration(row.id)"
+                    @click="handleCancel(row.id)"
                     >取消</el-button
                   >
                   <el-popconfirm title="确定删除该挂号吗？" @confirm="handleDelete(row.id)">
@@ -81,7 +81,11 @@ import PageHeader from '@/components/PageHeader.vue'
 import useTable from '@/hook/table'
 import { ElMessage } from 'element-plus'
 import { IRegistration } from '@/types/common'
-import { queryRegistrationPage, deleteRegistration } from '@/server/api/register'
+import {
+  queryRegistrationPage,
+  deleteRegistration,
+  cancelRegistration
+} from '@/server/api/register'
 import EditRegistrationModal from '@/views/register/components/EditRegistrationModal.vue'
 import { REGISTER_STATUS } from '@/const'
 
@@ -131,7 +135,7 @@ const editRegistration = (row: IRegistration) => {
   modalMode.value = 'edit'
   currentRow.value = row
 }
-const cancelRegistration = async (index: string) => {
+const handleCancel = async (index: string) => {
   const res: never = await cancelRegistration(index)
   const { message } = res
   ElMessage.success(message)

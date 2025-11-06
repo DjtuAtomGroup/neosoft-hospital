@@ -1,5 +1,6 @@
 import $request from '../request'
 import { IPage } from '../../types'
+import { IEditRegistration } from '../../types/common'
 
 export const queryRegistrationPage = (config: IPage<never>) =>
   $request({ url: '/api/registration/page', method: 'POST', data: config })

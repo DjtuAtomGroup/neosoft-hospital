@@ -51,6 +51,7 @@ const props = withDefaults(defineProps<addProp>(), {
 const { show, mode, data } = toRefs(props)
 
 const form = reactive({
+  id: '',
   patientId: getUserId(),
   appointmentTime: '',
   status: 0,
@@ -69,10 +70,12 @@ const title = computed(() => {
 
 const initData = () => {
   if (mode.value === 'edit') {
+    form.id = data.value?.id ?? ''
     form.patientId = data.value?.patientId ?? ''
     form.appointmentTime = data.value?.appointmentTime ?? ''
     form.status = data.value?.status ?? 0
   } else {
+    form.id = ''
     form.patientId = ''
     form.appointmentTime = ''
     form.status = 0

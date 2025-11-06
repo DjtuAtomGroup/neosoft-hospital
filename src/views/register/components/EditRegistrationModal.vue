@@ -46,7 +46,7 @@
 import { REGISTER_STATUS } from '@/const'
 import { Message } from '@/utils'
 import { addRegistration, updateRegistration } from '@/server/api/register'
-import { IRegistration } from '@/types/common'
+import { IEditRegistration, IRegistration } from '@/types/common'
 
 type addProp = {
   show: boolean
@@ -62,7 +62,7 @@ const props = withDefaults(defineProps<addProp>(), {
 
 const { show, mode, data } = toRefs(props)
 
-const form = reactive<IRegistration>({
+const form = reactive<IEditRegistration>({
   id: '',
   patientId: '',
   deptName: '',
@@ -90,20 +90,16 @@ const initData = () => {
   if (mode.value === 'edit') {
     form.id = data.value?.id ?? ''
     form.patientId = data.value?.patientId ?? ''
-    form.doctorId = data.value?.doctorId ?? ''
     form.deptName = data.value?.deptName ?? ''
     form.doctorName = data.value?.doctorName ?? ''
-    form.appointmentTime = data.value?.appointmentTime ?? ''
     form.status = data.value?.status ?? 0
     form.fee = data.value?.fee ?? 0
     form.regTime = data.value?.regTime ?? ''
   } else {
     form.id = ''
     form.patientId = ''
-    form.doctorId = ''
     form.deptName = ''
     form.doctorName = ''
-    form.appointmentTime = ''
     form.status = 0
     form.fee = 0
     form.regTime = ''
@@ -111,7 +107,7 @@ const initData = () => {
 }
 
 const handleConfirm = async () => {
-  const params: IRegistration = {
+  const params: IEditRegistration = {
     ...form,
   }
   if (mode.value === 'add') {

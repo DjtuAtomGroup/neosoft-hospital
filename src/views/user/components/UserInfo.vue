@@ -112,7 +112,6 @@ const handleSubmit = async () => {
     role: form.role,
   }
   const res = await updateUser(params)
-  console.log('updateUser response:', res)
   const { status } = res
   if (status === 200) {
     Message.success('更新用户信息成功')

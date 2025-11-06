@@ -44,7 +44,7 @@
                     @click="editMedicine(row)"
                     >编辑</el-button
                   >
-                  <el-popconfirm title="确定删除该药品吗？" @confirm="handleDelete(row.id)">
+                  <el-popconfirm title="确定删除该药品吗？" @confirm="handleDelete(row?.id)">
                     <template #reference>
                       <el-button v-permission="'doctor'" type="danger" size="small">删除</el-button>
                     </template>

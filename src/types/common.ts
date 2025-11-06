@@ -66,3 +66,6 @@ export type IRegistration = {
   createAt: string
   updateAt: string
 }
+
+
+export type IEditRegistration = Omit<IRegistration, 'createAt' | 'updateAt'>
